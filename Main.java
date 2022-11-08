@@ -21,8 +21,9 @@ public class Main implements ActionListener {
      */
     public static void main(String[] args) {
         JFrame mainFrame = new JFrame();
+        GridLayout layout = new GridLayout(4,1);
         mainFrame.setSize(500, 1200);
-        mainFrame.setLayout(new GridLayout(4,1));
+        mainFrame.setLayout(layout);
         DrawPlot simplePlot = new SimplePlot();
         DecoratorPlot squarePlot = new SquarePlot();
         squarePlot.addComponent(simplePlot);
@@ -50,6 +51,6 @@ public class Main implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         source.updateData();
     }
-    
+
 
 }
