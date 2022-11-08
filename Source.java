@@ -2,13 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+
+/**
+ * Continuously generates new points
+ * @author Aakash Vora
+ */
 public class Source extends Observable {
+
+
     private List<Integer> list = new ArrayList<>();
 
-    public List<Integer> getList() {
-        return list;
-    }
 
+    /**
+     * Generates a new random point at an interval of every 1 secs
+     */
     public void updateData() {
         while(true) {
             list.add((int)(Math.random()*200));
@@ -20,5 +27,12 @@ public class Source extends Observable {
                 e.printStackTrace();
             }
         }
-    }    
+    } 
+    
+    
+    public List<Integer> getList() {
+        return list;
+    }
+
+
 }

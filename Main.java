@@ -4,18 +4,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
+
+/**
+ * Handles creating of GUI and serves as an entry-point
+ * @author Aakash Vora
+ */
 public class Main implements ActionListener {
-    static Source source = new Source();
 
 
+    private static Source source = new Source();
+
+
+    /**
+     * The entrypoint to the program
+     * @param args Command-line argument
+     */
     public static void main(String[] args) {
         JFrame mainFrame = new JFrame();
         mainFrame.setSize(500, 1200);
         mainFrame.setLayout(new GridLayout(4,1));
         DrawPlot simplePlot = new SimplePlot();
-        SquarePlot squarePlot = new SquarePlot();
+        DecoratorPlot squarePlot = new SquarePlot();
         squarePlot.addComponent(simplePlot);
-        BarPlot barPlot = new BarPlot();
+        DecoratorPlot barPlot = new BarPlot();
         barPlot.addComponent(squarePlot);
         PlotViewer plot1 = new PlotViewer(barPlot);
         PlotViewer plot2 = new PlotViewer(squarePlot);
@@ -31,13 +42,14 @@ public class Main implements ActionListener {
         source.addObserver(plot1);
         source.addObserver(plot2);
         source.addObserver(plot3);
-        mainFrame.setVisible(true);
-        
+        mainFrame.setVisible(true);    
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         source.updateData();
     }
+    
 
 }

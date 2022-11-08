@@ -2,9 +2,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
 
+
+/**
+ * Implementation of DrawPlot to generate plots of points connected through a line
+ * @author Aakash Vora
+ */
 public class SimplePlot extends DrawPlot {
 
 
+    /* (non-Javadoc)
+     * @see DrawPlot#draw(java.awt.Graphics, java.util.List, int, int, int)
+     * Draws a plot by connecting two points with a line
+     */
     @Override
     public void draw(Graphics g, List<Integer> points, int height, int width, int visibleCols) {
         List<Integer> xList = Utils.getXList(width,visibleCols);
